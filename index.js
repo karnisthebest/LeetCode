@@ -1,26 +1,19 @@
-
-// Play ground
-/**
- * @param {number} x
- * @return {number}
- */
-var reverse = function(num) {
-    const result = []
-    let minus;
-    let digits = num.toString().split('');
-    if(digits[0] === '-'){
-        minus = true;
-        digits.shift()
+var isPalindrome = function(x) {
+    if(x < 0) {
+        return false;
     }
-    for(let i = 1; i <= digits.length; i++){
-        result.push(digits[digits.length - i])
-    }
-    let answer = result.join('')
-    if(minus){
-        answer = '-' + answer
-    }
-    return parseInt(answer)
+    return x === reversedInteger(x);
 };
 
-const result = reverse(0)
+
+const reversedInteger = (x) => {
+    let reversed = 0;
+    while (x > 0) {
+        reversed = (reversed * 10) + (x % 10);
+        x = Math.floor(x /10)
+    }
+    return reversed;
+}
+
+const result = isPalindrome(131)
 console.log("result", result)

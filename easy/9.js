@@ -1,8 +1,23 @@
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
 var isPalindrome = function(x) {
-    const reverse = x.toString().split('').reverse().join('');
-    if(reverse === x.toString()){
-        return true;
-    } else {
+    if(x < 0) {
         return false;
     }
+    return x === reversedInteger(x);
 };
+
+
+const reversedInteger = (x) => {
+    let reversed = 0;
+    while (x > 0) {
+        reversed = (reversed * 10) + (x % 10);
+        x = Math.floor(x /10)
+    }
+    return reversed;
+}
+
+console.log("result", result)
+const result = isPalindrome(131)
